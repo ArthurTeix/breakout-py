@@ -9,11 +9,11 @@ pygame.display.set_caption("Breakout") # title
 
 # ball
 ball_size = 15
-ball = pygame.Rect(100, 500, ball_size, ball_size) # init position ball
+ball = pygame.Rect(385, 500, ball_size, ball_size) # init position ball
 
 # player
 width_player = 100
-player = pygame.Rect(0, 750, width_player, 15)
+player = pygame.Rect(350, 750, width_player, 15)
 
 # Number of blocks
 number_blocks_line = 8
@@ -53,3 +53,5 @@ while not end_game:
     # update screen
     pygame.time.wait(1) 
     pygame.display.flip()
+
+pygame.quit() # end pygame instance
