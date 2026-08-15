@@ -17,12 +17,8 @@ player = pygame.Rect(350, 750, width_player, 15)
 
 # Number of blocks
 number_blocks_line = 8
-number_lines = 5
+number_lines = 8
 all_blocks = number_blocks_line * number_lines
-
-def create_blocks(number_blocks_line, number_lines):
-    blocks = []
-    return blocks
 
 # pygame colors (RGB)
 colors = {
@@ -40,13 +36,45 @@ points = 0
 ball_speed = [1, 1]
 
 # show screen
+# init
 def draw_init_game():
     screen.fill(colors['black']) # bg-color screen
 
     pygame.draw.rect(screen, colors['blue'], player)
     pygame.draw.rect(screen, colors['white'], ball)
 
+# blocks
+def create_blocks(number_blocks_line, number_lines):
+    width_screen = screen_size[0]
+    height_screen = screen_size[1]
+
+    block_distance = 5
+    width_block = (width_screen / 8) - block_distance
+
+    height_block = 15
+    line_distance = height_block + 10
+
+
+    blocks = []
+
+    for j in range(number_lines):
+        for i in range(number_blocks_line):
+            # create block in screen
+            block = pygame.Rect(i * (width_block + 5) + 2.5, (j * line_distance) + 40, width_block, height_block)
+            # add block
+            blocks.append(block)
+    
+    return blocks
+
+def draw_blocks(blocks):
+    for block in blocks:
+        pygame.draw.rect(screen, colors['green'], block)
+
+
+# initializing game
 draw_init_game()
+blocks = create_blocks(number_blocks_line, number_lines)
+draw_blocks(blocks)
 
 # loop game
 end_game = False   
