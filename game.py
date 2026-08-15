@@ -40,7 +40,13 @@ points = 0
 ball_speed = [1, 1]
 
 # show screen
-screen.fill(colors['black']) # bg-color screen
+def draw_init_game():
+    screen.fill(colors['black']) # bg-color screen
+
+    pygame.draw.rect(screen, colors['blue'], player)
+    pygame.draw.rect(screen, colors['white'], ball)
+
+draw_init_game()
 
 # loop game
 end_game = False   
