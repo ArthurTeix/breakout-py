@@ -17,3 +17,16 @@ player = pygame.Rect(0, 750, width_player, 15)
 number_blocks_line = 8
 number_lines = 5
 all_blocks = number_blocks_line * number_lines
+
+def create_blocks(number_blocks_line, number_lines):
+    blocks = []
+    return blocks
+
+# pygame colors (RGB)
+colors = {
+    'white': (255, 255, 255),
+    'black': (0, 0, 0),
+    'yellow': (255, 255, 0),
+    'blue': (0, 0, 255),
+    'green': (0, 255, 0)
+}
