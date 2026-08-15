@@ -6,3 +6,11 @@ screen_size = (800, 800)
 screen = pygame.display.set_mode(screen_size) # create screen
 
 pygame.display.set_caption("Breakout") # title
+
+ball_size = 15
+width_player = 100
+
+# Number of blocks
+number_blocks_line = 8
+number_lines = 5
+all_blocks = number_blocks_line * number_lines
