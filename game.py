@@ -30,3 +30,9 @@ colors = {
     'blue': (0, 0, 255),
     'green': (0, 255, 0)
 }
+
+end_game = False   
+points = 0
+
+#       x-axis and y-axis
+ball_speed = [1, 1]
