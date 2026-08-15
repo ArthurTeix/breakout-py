@@ -70,19 +70,31 @@ def draw_blocks(blocks):
     for block in blocks:
         pygame.draw.rect(screen, colors['green'], block)
 
+# move elements
+def move_player(event):
+    if (event.type == pygame.KEYDOWN): # 'KEYDOWN' = PRESS
+
+        if (event.key == pygame.K_RIGHT):
+            player.x = player.x + 10 # position x-axis
+
+        if (event.key == pygame.K_LEFT):
+            player.x = player.x - 10
+
+    pass
 
 # initializing game
-draw_init_game()
 blocks = create_blocks(number_blocks_line, number_lines)
-draw_blocks(blocks)
 
 # loop game
-end_game = False   
+end_game = False
 while not end_game:
+    draw_init_game()  
+    draw_blocks(blocks)
 
     for event in pygame.event.get(): # event of the player
         if (event.type == pygame.QUIT):
             end_game = True 
+        move_player(event)
 
     # update screen
     pygame.time.wait(1) 
