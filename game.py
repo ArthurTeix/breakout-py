@@ -74,10 +74,10 @@ def draw_blocks(blocks):
 def move_player(event):
     if (event.type == pygame.KEYDOWN): # 'KEYDOWN' = PRESS
 
-        if (event.key == pygame.K_RIGHT or event.key == pygame.K_d):
+        if (event.key == pygame.K_RIGHT or event.key == pygame.K_d) and (player.x < 700):
             player.x = player.x + 10 # position x-axis
 
-        if (event.key == pygame.K_LEFT or event.key == pygame.K_a):
+        if (event.key == pygame.K_LEFT or event.key == pygame.K_a) and (player.x > 0):
             player.x = player.x - 10
 
     pass
