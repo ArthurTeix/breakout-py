@@ -33,7 +33,7 @@ colors = {
 points = 0
 
 #       x-axis and y-axis
-ball_moviment = [1, 1]
+ball_moviment = [1, -1]
 
 # show screen
 # init
@@ -74,11 +74,11 @@ def draw_blocks(blocks):
 def move_player(event):
     if (event.type == pygame.KEYDOWN): # 'KEYDOWN' = PRESS
 
-        if (event.key == pygame.K_RIGHT or event.key == pygame.K_d) and (player.x < 700):
-            player.x = player.x + 10 # position x-axis
+        if (event.key == pygame.K_RIGHT) and (player.x < 700):
+            player.x = player.x + 1 # position x-axis
 
-        if (event.key == pygame.K_LEFT or event.key == pygame.K_a) and (player.x > 0):
-            player.x = player.x - 10
+        if (event.key == pygame.K_LEFT) and (player.x > 0):
+            player.x = player.x - 1
 
 def move_ball(ball):
     moviment = ball_moviment # var local
@@ -120,7 +120,8 @@ while not end_game:
     for event in pygame.event.get(): # event of the player
         if (event.type == pygame.QUIT):
             end_game = True 
-        move_player(event)
+
+    move_player(event)
 
     ball_moviment = move_ball(ball)
 
