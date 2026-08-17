@@ -33,7 +33,7 @@ colors = {
 points = 0
 
 #       x-axis and y-axis
-ball_speed = [1, 1]
+ball_moviment = [1, 1]
 
 # show screen
 # init
@@ -81,7 +81,32 @@ def move_player(event):
             player.x = player.x - 10
 
 def move_ball(ball):
-    pass
+    moviment = ball_moviment # var local
+    ball.x = ball.x + moviment[0]
+    ball.y = ball.y + moviment[1]
+
+    # Edges (Right and Left)
+    if (ball.x) <= 0:
+        moviment[0] = -moviment[0]
+    if (ball.x + ball_size) >= screen_size[0]:
+        moviment[0] = -moviment[0]
+
+    # Top and Bottom
+    if (ball.y) <= 0:
+        moviment[1] = -moviment[1]
+    if (ball.y + ball_size) >= screen_size[1]:
+        moviment[1] = -moviment[1]
+
+    # Collide elements
+    if (player.collidepoint(ball.x, ball.y)):
+        moviment[1] = -moviment[1]
+
+    for block in blocks:
+        if (block.collidepoint(ball.x, ball.y)):
+            moviment[1] = -moviment[1]
+
+
+    return moviment
 
 # initializing game
 blocks = create_blocks(number_blocks_line, number_lines)
@@ -97,7 +122,7 @@ while not end_game:
             end_game = True 
         move_player(event)
 
-    move_ball(ball)
+    ball_moviment = move_ball(ball)
 
     # update screen
     pygame.time.wait(1) 
