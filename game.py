@@ -80,6 +80,7 @@ def move_player(event):
         if (event.key == pygame.K_LEFT or event.key == pygame.K_a) and (player.x > 0):
             player.x = player.x - 10
 
+def move_ball(ball):
     pass
 
 # initializing game
@@ -95,6 +96,8 @@ while not end_game:
         if (event.type == pygame.QUIT):
             end_game = True 
         move_player(event)
+
+    move_ball(ball)
 
     # update screen
     pygame.time.wait(1) 
